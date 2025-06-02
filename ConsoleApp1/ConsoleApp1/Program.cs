@@ -16,11 +16,15 @@ namespace ConsoleApp1
             int b = 0;
 
             Random random = new Random();
+            Console.WriteLine("Добро пожаловать в математический квиз!");
+            Console.WriteLine("Напишие уровень сложности от 1 до 3");
+            int level = int.Parse(Console.ReadLine());
+
 
             while (true)
             {
-                a = random.Next(0,10);
-                b = random.Next(0,10);
+                a = random.Next(-10 * level,10 * level);
+                b = random.Next(-10 * level, 10 * level);
 
                 Console.WriteLine($"{a} + {b} =\n");
                 string answer = Console.ReadLine();

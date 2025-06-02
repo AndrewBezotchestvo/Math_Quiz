@@ -12,13 +12,16 @@ namespace ConsoleApp1
         {
             int score = 0;
             int record = 0;
-            int a = 0;
-            int b = 0;
+            float a = 0;
+            float b = 0;
+
+
 
             Random random = new Random();
             Console.WriteLine("Добро пожаловать в математический квиз!");
-            Console.WriteLine("Напишие уровень сложности от 1 до 3");
+            Console.WriteLine("Напишие уровень сложности от 1 до 10");
             int level = int.Parse(Console.ReadLine());
+
 
 
             while (true)
@@ -26,10 +29,16 @@ namespace ConsoleApp1
                 a = random.Next(-10 * level,10 * level);
                 b = random.Next(-10 * level, 10 * level);
 
+                if (level > 5)
+                {
+                    a += (float)random.NextDouble();
+                    b += (float)random.NextDouble();
+                }
+
                 Console.WriteLine($"{a} + {b} =\n");
                 string answer = Console.ReadLine();
 
-                if (a + b == int.Parse(answer))
+                if (a + b == float.Parse(answer))
                 {
                     score++;
                     Console.WriteLine($"Правильный ответ!\nВаш счет:{score}");
